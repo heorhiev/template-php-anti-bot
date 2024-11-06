@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  webserver:
+  app:
     build:
       context: ./docker/app
     container_name: "${APP_NAME}-app"
