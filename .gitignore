@@ -1,0 +1,9 @@
+/.vscode
+/.github
+/.idea
+
+/docker/buildtest
+/docker/data/*
+/docker/logs/*
+
+.DS_Store

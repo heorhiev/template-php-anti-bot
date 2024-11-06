@@ -1,0 +1,62 @@
+version: "3"
+
+services:
+  webserver:
+    build:
+      context: ./docker/app
+    container_name: "${APP_NAME}-app"
+    restart: "always"
+    ports:
+      - "80:80"
+    links:
+      - database
+    volumes:
+      - ./site:/var/www:rw
+      - ./docker/config/ssl:/etc/apache2/ssl/
+      - ./docker/config/vhosts:/etc/apache2/sites-available
+      - ./docker/logs/apache2:/var/log/apache2
+      - ./docker/config/php.ini:/usr/local/etc/php/php.ini
+    environment:
+      APP_NAME: ${APP_NAME}
+      ENVIRONMENT: ${ENVIRONMENT}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  database:
+    container_name: "${APP_NAME}-database"
+    image: mysql:8
+    platform: linux/x86_64
+    restart: "unless-stopped"
+    ports:
+      - "127.0.0.1:3306:3306"
+    volumes:
+      - ./docker/config/initdb:/docker-entrypoint-initdb.d
+      - ./docker/data/mysql:/var/lib/mysql
+      - ./docker/logs/mysql:/var/log/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ulimits:
+      nofile: # Fix memory leak issue on some systems when LimitCORE=infinity (containerd)
+        soft: 1048576
+        hard: 1048576
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: "${APP_NAME}-phpmyadmin"
+    links:
+      - database
+    environment:
+      PMA_HOST: database
+      PMA_PORT: 3306
+      UPLOAD_LIMIT: 2048M
+      MEMORY_LIMIT: 2048M
+    ports:
+      - "8080:80"
+      - "8443:443"
+    volumes:
+      - /sessions
+      - ./docker/config/php.ini:/usr/local/etc/php/conf.d/php-phpmyadmin.ini
