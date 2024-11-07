@@ -1,6 +1,6 @@
 <?php
 
-namespace public\src\controllers;
+namespace controllers;
 
 
 class HelloController implements \light\http\interfaces\ControllerInterface
