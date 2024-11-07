@@ -11,7 +11,7 @@ services:
     links:
       - database
     volumes:
-      - ./src:/var/www:rw
+      - ./app:/var/www:rw
       - ./docker/config/ssl:/etc/apache2/ssl/
       - ./docker/config/vhosts:/etc/apache2/sites-available
       - ./docker/logs/apache2:/var/log/apache2
