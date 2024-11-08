@@ -1,4 +1,5 @@
 !*
 /vendor
 /.idea
+studio.json
 composer.lock
