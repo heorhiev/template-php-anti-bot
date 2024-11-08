@@ -16,6 +16,7 @@ services:
       - ./docker/config/vhosts:/etc/apache2/sites-available
       - ./docker/logs/apache2:/var/log/apache2
       - ./docker/config/php.ini:/usr/local/etc/php/php.ini
+      - ./modules:/modules
     environment:
       APP_NAME: ${APP_NAME}
       ENVIRONMENT: ${ENVIRONMENT}

@@ -1,8 +1,18 @@
 {
-    "require": {
-        "heorhiev/php-light-http": "dev-master"
-    },
     "minimum-stability": "dev",
+    "require": {
+        "heorhiev/php-light-http": "dev-master",
+        "heorhiev/php-app-anti-bot": "dev-master"
+    },
+    "require-dev": {
+        "franzl/studio": "^0.16"
+    },
+    "config": {
+        "process-timeout": 1800,
+        "allow-plugins": {
+            "franzl/studio": true
+        }
+    },
     "repositories": [
         {
             "type": "vcs",
@@ -11,6 +21,18 @@
         {
             "type": "vcs",
             "url": "https://github.com/heorhiev/php-app-anti-bot"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/heorhiev/php-light-app.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/heorhiev/php-light-orm.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/heorhiev/php-light-tg-bot.git"
         }
     ]
 }

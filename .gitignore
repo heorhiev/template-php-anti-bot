@@ -2,6 +2,9 @@
 /.github
 /.idea
 
+/modules/
+/app/studio.json
+
 /docker/buildtest
 /docker/data/*
 /docker/logs/*

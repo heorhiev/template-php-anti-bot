@@ -1,0 +1,10 @@
+{
+    "version": 2,
+    "paths": [
+        "/modules/php-app-anti-bot",
+        "/modules/php-light-app",
+        "/modules/php-light-http",
+        "/modules/php-light-orm",
+        "/modules/php-light-tg-bot"
+    ]
+}
