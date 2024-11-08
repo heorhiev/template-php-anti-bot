@@ -2,7 +2,7 @@
     "minimum-stability": "dev",
     "require": {
         "heorhiev/php-light-http": "dev-master",
-        "heorhiev/php-app-anti-bot": "dev-master"
+        "heorhiev/php-light-module-anti-bot": "dev-master"
     },
     "require-dev": {
         "franzl/studio": "^0.16"
@@ -20,7 +20,7 @@
         },
         {
             "type": "vcs",
-            "url": "https://github.com/heorhiev/php-app-anti-bot"
+            "url": "https://github.com/heorhiev/php-light-module-anti-bot"
         },
         {
             "type": "vcs",
