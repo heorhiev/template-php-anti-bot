@@ -1,3 +1,3 @@
 <?php
 
-\light\http\Http::addRoute('hello', \controllers\HelloController::class);
+(new \light\module\antiBot\Bootstrap)->bootstrap(null);
