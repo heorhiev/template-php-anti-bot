@@ -3,7 +3,7 @@
 namespace controllers;
 
 
-class HelloController implements \light\http\ControllerInterface
+class HelloController implements http\src\ControllerInterface
 {
     public function main(): void
     {
