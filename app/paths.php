@@ -9,8 +9,9 @@ const COMMON_PATH = APP_PATH . '/common';
 const PUBLIC_PATH = APP_PATH . '/public';
 const PUBLIC_FILES_PATH = PUBLIC_PATH . '/files';
 
-const ALIASES = [
+
+\light\app\services\AliasService::setPaths([
     '{@configPath}' => CONFIG_PATH,
     '{@vendorPath}' => VENDOR_PATH,
     '{@publicFilesPath}' => PUBLIC_FILES_PATH,
-];
+]);
