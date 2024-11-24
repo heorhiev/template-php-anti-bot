@@ -24,4 +24,6 @@ RUN a2enmod rewrite headers
 ADD ./entrypoint.sh /docker/entrypoint.sh
 RUN chmod +x /docker/entrypoint.sh
 
+WORKDIR /var/www
+
 ENTRYPOINT ["/docker/entrypoint.sh"]
