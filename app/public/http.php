@@ -1,6 +1,5 @@
 <?php
 
-
 try {
     (new \light\http\Http)->run($_GET['action'] ?? '');
 } catch (\Throwable $e) {

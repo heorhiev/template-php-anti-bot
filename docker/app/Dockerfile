@@ -10,7 +10,7 @@ RUN apt-get update && apt-get -y --no-install-recommends install \
     libzip-dev \
     unzip \
     git \
-    && docker-php-ext-install sockets pdo pdo_mysql sodium zip \
+    && docker-php-ext-install sockets pdo pdo_mysql mysqli sodium zip \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 

@@ -1,6 +1,6 @@
 <?php
 
-const APP_PATH = __DIR__;
+const APP_PATH = '/var/www';
 const CONFIG_PATH = APP_PATH . '/config';
 const VENDOR_PATH = APP_PATH . '/vendor';
 
